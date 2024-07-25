@@ -1,11 +1,10 @@
-.CommentImage{
-    width: 4em;
-    border-radius:50%;
-    
-}
 .Comment{
-    background-color:antiquewhite;
-    width:50%;
+    width:350px;
     margin: auto;
     padding: 0.5em;
+    height: 210px;
+    background-color:#efeee5;
+}
+.Date{
+    text-align:center ;
 }

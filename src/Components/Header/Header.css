@@ -4,6 +4,10 @@
 .Header{
     display: flex;
     justify-content: space-between;
-    background-color:ghostwhite;
+    background-color:#efeee5;
     padding: 0.5em;
+    
+}
+li>ul{
+    font-weight: 600;
 }
