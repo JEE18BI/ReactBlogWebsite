@@ -1,0 +1,9 @@
+.NavBar{
+    display:flex;
+}
+.Header{
+    display: flex;
+    justify-content: space-between;
+    background-color:ghostwhite;
+    padding: 0.5em;
+}
