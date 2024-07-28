@@ -1,6 +1,6 @@
-
 import './Header.css';
 import Avatar from '../Avatar/Avatar.jsx'
+import img1 from '../../Images/AlyHany.jpg';
 const Header = () => {
   return (
     <div className="Header">
@@ -13,7 +13,7 @@ const Header = () => {
       
       
       </li>
-      <Avatar/>
+      <Avatar src={img1}/>
     </div>
   )
 }

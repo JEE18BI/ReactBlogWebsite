@@ -1,9 +1,9 @@
-import Img from '../../Images/img1.jpg'
+import Img from '../../Images/Person-Placeholder.png';
 import './Avatar.css';
-const Avatar = () => {
+const Avatar = ({src}) => {
   return (
     <>
-       <img className="CommentImage" src={Img} alt="image1"/>
+       <img className="CommentImage" src={src ? src :Img} alt="image1"/>
     </>
   )
 }
