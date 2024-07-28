@@ -1,7 +1,7 @@
-import './Header.css';
 import Avatar from '../Avatar/Avatar.jsx'
-import img1 from '../../Images/AlyHany.jpg';
-const Header = () => {
+import './Header.css';
+const Header = ({src}) => {
+
   return (
     <div className="Header">
       <li className="NavBar">
@@ -13,7 +13,7 @@ const Header = () => {
       
       
       </li>
-      <Avatar src={img1}/>
+      <Avatar src={src}/>
     </div>
   )
 }

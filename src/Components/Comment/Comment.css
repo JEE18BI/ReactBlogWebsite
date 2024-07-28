@@ -5,7 +5,11 @@
     height: 210px;
     background-color:ghostwhite;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    margin-bottom: 1em;
 }
 .Date{
     text-align:center ;
+}
+.UserName{
+    margin-top:0.5em;
 }

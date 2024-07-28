@@ -4,6 +4,7 @@ const Avatar = ({src}) => {
   return (
     <>
        <img className="CommentImage" src={src ? src :Img} alt="image1"/>
+  
     </>
   )
 }
