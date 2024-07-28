@@ -1,12 +1,12 @@
 import Avatar from '../Avatar/Avatar.jsx';
 import './Comment.css';
-const Comment = ()=>{
+const Comment = ({UserName,Comment,Date})=>{
     return(
         <div className='Comment' >
-             <Avatar/>
-            <h4 className="UserName">Aly Hany</h4>
-            <p className="CommentText">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-            <h6 className="Date">26 July 2024</h6>
+             <Avatar />
+            <h4 className="UserName">{UserName}</h4>
+            <p className="CommentText">{Comment}</p>
+            <h6 className="Date">{Date}</h6>
           </div>
     )
 }

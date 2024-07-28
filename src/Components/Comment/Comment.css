@@ -3,7 +3,8 @@
     margin: auto;
     padding: 0.5em;
     height: 210px;
-    background-color:#efeee5;
+    background-color:ghostwhite;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .Date{
     text-align:center ;

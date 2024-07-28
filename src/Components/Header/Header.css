@@ -4,10 +4,12 @@
 .Header{
     display: flex;
     justify-content: space-between;
-    background-color:#efeee5;
+    background-color:#555555;
     padding: 0.5em;
     
 }
 li>ul{
     font-weight: 600;
+    color:white;
+    font-size:1.2em;
 }

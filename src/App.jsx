@@ -6,7 +6,7 @@ export function App() {
    <div>
     <Header/>
     <h1 className="Title">Most Liked Comments</h1>
-   <Comment/>
+   <Comment UserName="Aly Hany" Comment="Lorem ipsum dolor sit amet consectetur adipisicing elit" Date="28-Jul-24"/>
    </div>
   )
 }
