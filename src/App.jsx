@@ -51,11 +51,15 @@ export function App() {
     
     
   };
+  const deleteComment=(deletedId)=>{
+    setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
+    
+  };
   return(
    <div className="App">
     <Header src={img1}/>
     <h1 className="Title">Comments</h1>
-    <CommentList data={comments}/>
+    <CommentList data={comments} deleteFunction={deleteComment}/>
     <button  onClick={addComment}>Generate Dummy Comment</button>
    <Counter/>
    </div>
