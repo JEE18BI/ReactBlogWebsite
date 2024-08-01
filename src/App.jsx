@@ -1,4 +1,3 @@
-import Comment from './Components/Comment/Comment.jsx';
 import Header from './Components/Header/Header.jsx';
 import Counter from './Components/Counter/Counter.jsx';
 import img1 from './Images/AlyHany.jpg';
