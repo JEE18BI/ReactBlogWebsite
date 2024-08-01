@@ -10,33 +10,38 @@ const data = [
     id: 1,
     UserName: "Aly Hany",
     Comment: "This is a great post!",
-    Date: "2024-07-25",
-    src:img1
+    Date: "25-07-2024",
+    src:img1,
+    Gender:"M"
   },
   {
     id: 2,
     UserName: "Bob",
     Comment: "I found this article very informative.",
-    Date: "2024-07-26"
+    Date: "26-07-2024",
+    Gender:"M"
   },
   {
     id: 3,
     UserName: "Charlie",
     Comment: "I disagree with some points mentioned.",
-    Date: "2024-07-27"
+    Date: "26-07-2024",
+    Gender:"M"
   },
   {
     id: 4,
     UserName: "Diana",
     Comment: "Can you provide more details on this topic?",
-    Date: "2024-07-28"
+    Date: "28-7-2024",
+    Gender:"F"
   }
 ];
 const newComment=  {
   id: 5,
   UserName: "Alice",
   Comment: "Hello There...",
-  Date: "2024-08-1"
+  Date: "1-08-2024",
+  Gender:"F"
  
 }
 

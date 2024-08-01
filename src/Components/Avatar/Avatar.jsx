@@ -1,12 +1,24 @@
-import Img from '../../Images/Person-Placeholder.png';
+import MalePlaceholder from '../../Images/Male-Placeholder.png';
+import FemalePlaceholder from '../../Images/Female-Placeholder.png';
 import './Avatar.css';
-const Avatar = ({src}) => {
-  return (
-    <>
-       <img className="CommentImage" src={src ? src :Img} alt="image1"/>
-  
-    </>
-  )
+const Avatar = ({src,Gender}) => {
+  if(Gender==="M"){
+    return (
+      <>
+         <img className="CommentImage" src={src ? src :MalePlaceholder} alt="Male Avatar"/>
+    
+      </>
+    )
+  }
+  else{
+    return(
+        <>
+           <img className="CommentImage" src={src ? src :FemalePlaceholder} alt="Male Avatar"/>
+      
+        </>
+      
+    )
+  }
 }
 
 export default Avatar
