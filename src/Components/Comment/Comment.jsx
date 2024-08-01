@@ -9,8 +9,10 @@ const Comment = ({id,UserName,Comment,Date,src,Gender,deleteFunction})=>{
             <h4 className="UserName">{UserName}</h4>
             <p className="CommentText">{Comment}</p>
             <h6 className="Date">{Date}</h6>
-            <button onClick={() => deleteFunction(id)}>Delete</button>
+            <div className="ButtonContainer">
+            <button className="DeleteButton" onClick={() => deleteFunction(id)}>Delete</button>
+            </div>
           </div>
     )
 }
-export default Comment;
+export default Comment; 

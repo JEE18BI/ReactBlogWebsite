@@ -6,10 +6,10 @@ const Counter = () => {
     const counterDecrementHandler=()=>setCount(count-1);
   return (
     <div className="CounterContainer">
-      <h2>Count : {count}</h2>
+      <h2>Counter : {count}</h2>
 
-      <button onClick={counterIncrementHandler}>Increment</button>
-      <button onClick={counterDecrementHandler}>Decrement</button>
+      <button className="IncrementButton" onClick={counterIncrementHandler}>Increment</button>
+      <button className="DecrementButton" onClick={counterDecrementHandler}>Decrement</button>
     </div>
   )
 }

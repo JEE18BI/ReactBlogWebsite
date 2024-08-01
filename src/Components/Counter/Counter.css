@@ -2,3 +2,16 @@
     width:200px;
     margin: auto;
 }
+h2{
+    text-align: center;
+}
+.IncrementButton{
+    background-color:darkcyan;
+    border-color:darkcyan;
+    color:white;
+}
+    .DecrementButton{
+        
+        border-color:white;
+        color:darkcyan; 
+}

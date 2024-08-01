@@ -60,7 +60,7 @@ export function App() {
     <Header src={img1}/>
     <h1 className="Title">Comments</h1>
     <CommentList data={comments} deleteFunction={deleteComment}/>
-    <button  onClick={addComment}>Generate Dummy Comment</button>
+    <button  className="AddCommentButton" onClick={addComment}>Add</button>
    <Counter/>
    </div>
   )

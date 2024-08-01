@@ -1,3 +1,6 @@
+*{
+    margin:0;
+}
 .Comment{
     width:350px;
     margin: auto;
@@ -10,7 +13,21 @@
 }
 .Date{
     text-align:center ;
+    margin-top:40px;
 }
 .UserName{
-    margin-top:0.5em;
+    margin-top:6px;
+    margin-bottom:10px;
+}
+.DeleteButton{
+    margin-top:4px;
+    width:75px;
+    background-color:#d11a2a;
+    color:white;
+    border-color: #d11a2a;
+    font-size: 14px;
+}
+.ButtonContainer{
+    display:flex;
+    justify-content: center;
 }
