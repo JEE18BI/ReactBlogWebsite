@@ -1,3 +1,12 @@
 .Title{
   text-align: center;
 }
+.App{
+justify-content: center;
+display: flex;
+flex-direction: column;
+}
+button{
+  width:200px;
+  margin: auto;
+}

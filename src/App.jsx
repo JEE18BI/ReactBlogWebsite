@@ -11,38 +11,48 @@ const data = [
     UserName: "Aly Hany",
     Comment: "This is a great post!",
     Date: "2024-07-25",
-    src:img1,
-    Status:"Active"
+    src:img1
   },
   {
     id: 2,
     UserName: "Bob",
     Comment: "I found this article very informative.",
-    Date: "2024-07-26",
-    Status:"Inactive"
+    Date: "2024-07-26"
   },
   {
     id: 3,
     UserName: "Charlie",
     Comment: "I disagree with some points mentioned.",
-    Date: "2024-07-27",
-    Status:"Active"
+    Date: "2024-07-27"
   },
   {
     id: 4,
     UserName: "Diana",
     Comment: "Can you provide more details on this topic?",
-    Date: "2024-07-28",
-    Status:"Active"
+    Date: "2024-07-28"
   }
 ];
+const newComment=  {
+  id: 5,
+  UserName: "Alice",
+  Comment: "Hello There...",
+  Date: "2024-08-1"
+ 
+}
+
 export function App() {
-  const [users, setUsers] = useState(data);
+  const [comments, setComments] = useState(data);
+  const addComment=()=>{
+    setComments(prevsState=>[...prevsState,newComment]);
+    
+    
+  };
   return(
-   <div>
+   <div className="App">
     <Header src={img1}/>
     <h1 className="Title">Comments</h1>
-    <CommentList data={data}/>
+    <CommentList data={comments}/>
+    <button  onClick={addComment}>Generate Dummy Comment</button>
    <Counter/>
    </div>
   )
