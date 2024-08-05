@@ -52,7 +52,7 @@ export function App() {
   return(
    <div className="App">
     <Header src={img1}/>
-    <h1 className="Title">Comments</h1>
+    <h1 className="Title">Blog Website</h1>
     <CommentList data={comments} deleteFunction={deleteComment}/>
    {/* <Counter/> */}
    <InputForm setComment={setComments}/>
