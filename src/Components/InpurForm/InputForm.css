@@ -1,0 +1,20 @@
+.AddCommentForm{
+    margin:auto;
+    background-color:#f6f6f6;
+    display:flex;
+    flex-direction: column;
+    width:350px;
+    height:100px;
+    padding:1em;
+}
+.FormButton{
+    background-color:darkcyan;
+    border-color:darkcyan;
+    color:white;
+}
+label{
+    font-weight:600;
+}
+input{
+    border: darkcyan 2px solid;
+}

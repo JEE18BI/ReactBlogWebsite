@@ -36,18 +36,11 @@ const data = [
     Gender:"F"
   }
 ];
-const newComment=  {
-  id: 5,
-  UserName: "Alice",
-  Comment: "Hello There...",
-  Date: "1-08-2024",
-  Gender:"F"
- 
-}
+
 
 export function App() {
   const [comments, setComments] = useState(data);
-  const addComment=()=>{
+  const addComment=(newComment)=>{
     setComments(prevsState=>[...prevsState,newComment]);
     
     
@@ -61,9 +54,8 @@ export function App() {
     <Header src={img1}/>
     <h1 className="Title">Comments</h1>
     <CommentList data={comments} deleteFunction={deleteComment}/>
-    <button  className="AddCommentButton" onClick={addComment}>Add</button>
-   <Counter/>
-   <InputForm/>
+   {/* <Counter/> */}
+   <InputForm setComment={setComments}/>
    </div>
   )
 }
