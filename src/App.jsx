@@ -3,6 +3,7 @@ import Counter from './Components/Counter/Counter.jsx';
 import img1 from './Images/AlyHany.jpg';
 import CommentList from './Components/CommentList/CommentList.jsx';
 import {useState} from 'react';
+import InputForm from './Components/InpurForm/InputForm.jsx';
 import '../src/App.css';
 const data = [
   {
@@ -62,6 +63,7 @@ export function App() {
     <CommentList data={comments} deleteFunction={deleteComment}/>
     <button  className="AddCommentButton" onClick={addComment}>Add</button>
    <Counter/>
+   <InputForm/>
    </div>
   )
 }
