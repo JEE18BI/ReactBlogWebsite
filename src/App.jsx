@@ -10,7 +10,7 @@ const data = [
     id: 1,
     UserName: "Aly Hany",
     Comment: "This is a great post!",
-    Date: "25-07-2024",
+    Date: "Sep 25,2024",
     src:img1,
     Gender:"M"
   },
@@ -18,21 +18,21 @@ const data = [
     id: 2,
     UserName: "Bob",
     Comment: "I found this article very informative.",
-    Date: "26-07-2024",
+    Date: "Sep 26,2024",
     Gender:"M"
   },
   {
     id: 3,
     UserName: "Charlie",
     Comment: "I disagree with some points mentioned.",
-    Date: "26-07-2024",
+    Date: "Sep 27,2024",
     Gender:"M"
   },
   {
     id: 4,
     UserName: "Diana",
     Comment: "Can you provide more details on this topic?",
-    Date: "28-7-2024",
+    Date: "Aug 04,2024",
     Gender:"F"
   }
 ];

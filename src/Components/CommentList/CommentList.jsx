@@ -14,9 +14,9 @@ const CommentList = ({data , deleteFunction}) => {
        console.log(newData);
       
   return (
-    <>
+    <div className="CommentList">
     {newData}
-    </>
+    </div>
   )
 }
 

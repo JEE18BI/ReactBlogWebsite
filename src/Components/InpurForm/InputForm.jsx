@@ -1,6 +1,7 @@
 
 import  {useRef}  from 'react';
 import './InputForm.css';
+import img1 from '../../Images/AlyHany.jpg';
 const InputForm = ({setComment}) => {
     const refComment =useRef();
     const refHandler =()=>{
@@ -12,8 +13,10 @@ const InputForm = ({setComment}) => {
             const newComment=  {
                 id: 5,
                 Comment:refComment.current.value,
-                UserName:"Lorem ispum",
+                UserName:"Aly Hany",
                 Date:dateString,
+                src:img1
+
                
               }
             setComment(prevsState=>[...prevsState,newComment]);
@@ -26,7 +29,7 @@ const InputForm = ({setComment}) => {
   return (
     <div className="AddCommentForm">
         <label htmlFor="Comment">Add New Comment</label>
-     <input id="Comment" ref={refComment}/>
+     <input id="Comment" ref={refComment} maxLength={200} placeholder="Write Your Comment Here , max 200 characters" />
      <button className="FormButton" onClick={refHandler}>Add</button>
      
     </div>

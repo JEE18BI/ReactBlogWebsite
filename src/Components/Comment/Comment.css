@@ -2,25 +2,27 @@
     margin:0;
 }
 .Comment{
-    width:350px;
+    width:400px;
     margin: auto;
     padding: 0.5em;
     height: 210px;
     background-color:#f6f6f6;
     box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
    
 }
 .Date{
-    text-align:center ;
-    margin-top:40px;
+  text-align: right;
+  color:gray;
+  font-weight:800;
+    
 }
 .UserName{
     margin-top:6px;
     margin-bottom:10px;
 }
 .DeleteButton{
-    margin-top:4px;
+ 
     width:75px;
     background-color:#d11a2a;
     color:white;
@@ -28,6 +30,11 @@
     font-size: 14px;
 }
 .ButtonContainer{
-    display:flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
+  
+}
+p.CommentText{
+    font-size:0.8em;
+    height:68px;
 }
