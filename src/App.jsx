@@ -1,9 +1,9 @@
 import Header from './Components/Header/Header.jsx';
-import Counter from './Components/Counter/Counter.jsx';
 import img1 from './Images/AlyHany.jpg';
-import CommentList from './Components/CommentList/CommentList.jsx';
 import {useState} from 'react';
-import InputForm from './Components/InpurForm/InputForm.jsx';
+import InputForm from './Components/InputForm/InputForm.jsx';
+import SearchBar from './Components/SearchBar/SearchBar.jsx';
+
 import '../src/App.css';
 const data = [
   {
@@ -40,11 +40,7 @@ const data = [
 
 export function App() {
   const [comments, setComments] = useState(data);
-  const addComment=(newComment)=>{
-    setComments(prevsState=>[...prevsState,newComment]);
-    
-    
-  };
+
   const deleteComment=(deletedId)=>{
     setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
     
@@ -52,9 +48,9 @@ export function App() {
   return(
    <div className="App">
     <Header src={img1}/>
+    <SearchBar className="SearchComponent" data={data} deleteFunction={deleteComment} comments={comments}/>
     <h1 className="Title">Blog Website</h1>
-    <CommentList data={comments} deleteFunction={deleteComment}/>
-   {/* <Counter/> */}
+    {/* <CommentList data={data} deleteFunction={deleteComment}/> */}
    <InputForm setComment={setComments}/>
    </div>
   )

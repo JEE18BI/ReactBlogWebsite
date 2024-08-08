@@ -7,10 +7,9 @@ const Header = ({src}) => {
       <li className="NavBar">
       
         <ul>Home</ul>
-        <ul>About</ul>
-        <ul>Services</ul>
-        <ul>Contact</ul>
-      
+        <ul>Profile</ul>
+        <ul>My Comments</ul>
+        <ul>Login</ul>
       
       </li>
       <Avatar src={src}/>

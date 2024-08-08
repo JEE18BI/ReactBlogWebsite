@@ -1,0 +1,10 @@
+.SearchBarContainer{
+    margin:6em auto 1em auto;
+    
+}
+.SearchBar{
+    width:200px;
+    border-radius: 10px;
+    height: 20px;
+    padding-left: 10px;
+}
