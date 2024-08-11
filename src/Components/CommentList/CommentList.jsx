@@ -2,7 +2,9 @@ import Comment from '../Comment/Comment.jsx';
 import './CommentList.css';
 const CommentList = ({data , deleteFunction}) => {
   if(data.length===0){
-    console.log("zero")
+  {  console.log("zero")
+    
+  }
  return (
    <div className="CommentList">
  <h3>No Data To Show</h3>

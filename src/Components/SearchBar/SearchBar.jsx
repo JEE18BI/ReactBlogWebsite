@@ -1,7 +1,7 @@
 import './SearchBar.css';
 import CommentList from '../CommentList/CommentList.jsx';
 import {useState} from 'react';
-const SearchBar = ({data,deleteComment,comments}) => {
+const SearchBar = ({data,deleteFunction,comments}) => {
     const [FilterData,setFilterData]=useState(comments);
     function FilterHandler(key){
      if(key.length===0)
@@ -17,7 +17,7 @@ const SearchBar = ({data,deleteComment,comments}) => {
     <div className="SearchBarContainer">
 <input placeholder="Search By Comment Details" className="SearchBar" onChange={(e)=>FilterHandler(e.target.value)}/>
     </div>
-<CommentList data={FilterData} deleteFunction={deleteComment}/>
+<CommentList data={FilterData} deleteFunction={deleteFunction}/>
    
     </>
   )

@@ -43,7 +43,7 @@ export function App() {
 
   const deleteComment=(deletedId)=>{
     setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
-    
+    console.log("Deleted");
   };
   return(
    <div className="App">
