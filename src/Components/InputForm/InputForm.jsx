@@ -2,8 +2,9 @@
 import  {useRef}  from 'react';
 import './InputForm.css';
 import img1 from '../../Images/AlyHany.jpg';
-const InputForm = ({setComment}) => {
-    const refComment =useRef();
+const InputForm = ({setComment,setFilterData,comments}) => {
+  console.log("render");
+    let refComment =useRef();
     const refHandler =()=>{
         if(refComment.current.value!=="" ){
             const today = new Date();
@@ -11,7 +12,7 @@ const InputForm = ({setComment}) => {
             const formattedDate = today.toLocaleDateString('en-US', options);
             const dateString = formattedDate.toString();
             const newComment=  {
-                id: 5,
+                id:Date.now(),
                 Comment:refComment.current.value,
                 UserName:"Aly Hany",
                 Date:dateString,
@@ -19,8 +20,9 @@ const InputForm = ({setComment}) => {
 
                
               }
-            setComment(prevsState=>[...prevsState,newComment]);
-            refComment.current.value="";
+              setComment(prevsState=>[...prevsState,newComment]);
+              setFilterData(comments);
+              refComment.current.value="";
         }
         else{
             alert("Please Fill All The Fields");
@@ -29,7 +31,7 @@ const InputForm = ({setComment}) => {
   return (
     <div className="AddCommentForm">
         <label htmlFor="Comment">Add New Comment</label>
-     <input id="Comment" ref={refComment} maxLength={200} placeholder="Write Your Comment Here , max 200 characters" />
+     <input id="Comment" ref={refComment} maxLength={200}/>
      <button className="FormButton" onClick={refHandler}>Add</button>
      
     </div>

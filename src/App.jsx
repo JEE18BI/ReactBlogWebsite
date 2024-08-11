@@ -3,7 +3,7 @@ import img1 from './Images/AlyHany.jpg';
 import {useState} from 'react';
 import InputForm from './Components/InputForm/InputForm.jsx';
 import SearchBar from './Components/SearchBar/SearchBar.jsx';
-
+import CommentList from './Components/CommentList/CommentList.jsx';
 import '../src/App.css';
 const data = [
   {
@@ -40,20 +40,24 @@ const data = [
 
 export function App() {
   const [comments, setComments] = useState(data);
-
+  const [FilterData,setFilterData]=useState(comments);
   const deleteComment=(deletedId)=>{
     setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
+    setFilterData(prevState => (prevState.filter(el => (el.id !== deletedId))))
     console.log("Deleted");
   };
   return(
    <div className="App">
     <Header src={img1}/>
-    <SearchBar className="SearchComponent" data={data} deleteFunction={deleteComment} comments={comments}/>
+   
+  <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments}/>
     <h1 className="Title">Blog Website</h1>
-    {/* <CommentList data={data} deleteFunction={deleteComment}/> */}
-   <InputForm setComment={setComments}/>
+{/* 
+     <CommentList data={data} deleteFunction={deleteComment}/> */}
+ <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments}/>
    </div>
   )
+
 }
 
 export default App;
