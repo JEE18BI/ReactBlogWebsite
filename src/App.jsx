@@ -46,6 +46,9 @@ export function App() {
     setFilterData(prevState => (prevState.filter(el => (el.id !== deletedId))))
     console.log("Deleted");
   };
+  const addComment=(newComment)=>{
+    setComments(prevState => (prevState,newComment));
+  }
   return(
    <div className="App">
     <Header src={img1}/>

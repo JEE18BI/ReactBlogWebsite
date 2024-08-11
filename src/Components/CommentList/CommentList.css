@@ -3,6 +3,6 @@ text-align:center;
 }
 .CommentList{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
     justify-content: center;
 }

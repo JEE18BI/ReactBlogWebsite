@@ -21,8 +21,10 @@ const InputForm = ({setComment,setFilterData,comments}) => {
                
               }
               setComment(prevsState=>[...prevsState,newComment]);
-              setFilterData(comments);
-              refComment.current.value="";
+              if(newComment.Comment.toLowerCase().includes(document.getElementById("SearchBarInput").value.toLowerCase()))
+              setFilterData(prevsState=>[...prevsState,newComment]);
+            else
+            setFilterData(setFilterData);
         }
         else{
             alert("Please Fill All The Fields");
