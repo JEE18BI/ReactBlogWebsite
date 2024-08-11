@@ -6,3 +6,12 @@ text-align:center;
     flex-wrap:wrap;
     justify-content: center;
 }
+.PlaceholderImage{
+    width:30%;
+}
+.PlaceholderDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
