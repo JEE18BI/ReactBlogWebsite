@@ -25,6 +25,7 @@ const InputForm = ({setComment,setFilterData,comments}) => {
               setFilterData(prevsState=>[...prevsState,newComment]);
             else
             setFilterData(setFilterData);
+            refComment.current.value="";
         }
         else{
             alert("Please Fill All The Fields");
