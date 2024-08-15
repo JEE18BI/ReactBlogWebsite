@@ -3,7 +3,6 @@ import img1 from './Images/AlyHany.jpg';
 import {useState} from 'react';
 import InputForm from './Components/InputForm/InputForm.jsx';
 import SearchBar from './Components/SearchBar/SearchBar.jsx';
-import CommentList from './Components/CommentList/CommentList.jsx';
 import '../src/App.css';
 const data = [
   {
@@ -55,8 +54,6 @@ export function App() {
    
   <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments}/>
     <h1 className="Title">Blog Website</h1>
-{/* 
-     <CommentList data={data} deleteFunction={deleteComment}/> */}
  <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments}/>
    </div>
   )
