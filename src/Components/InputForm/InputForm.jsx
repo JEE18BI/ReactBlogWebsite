@@ -1,19 +1,11 @@
 
-import  {useRef,useEffect,useState}  from 'react';
+import  {useRef}  from 'react';
 import './InputForm.css';
-import img1 from '../../Images/AlyHany.jpg';
-const InputForm = ({setComment,setFilterData,comments}) => {
-  console.log("render");
-    let refComment =useRef();
-    const [user,setUser]=useState("");
-    useEffect(()=>{
-      fetch("http://localhost:3004/LoggedInUser")
-      .then((data)=> data.json())
-      .then((fetchedData)=> {
-           setUser(fetchedData)
-      }).catch((error) => console.error('Error fetching data:', error));
- },[])  
-    const refHandler =()=>{
+const InputForm = ({setComment,setFilterData,user}) => {
+
+console.log(user);
+  let refComment =useRef(); 
+  const refHandler =()=>{
         if(refComment.current.value!=="" ){
             const today = new Date();
             const options = { year: 'numeric', month: 'short', day: '2-digit' };
@@ -24,7 +16,7 @@ const InputForm = ({setComment,setFilterData,comments}) => {
                 Comment:refComment.current.value,
                 UserName:user.userName,
                 Date:dateString,
-                src:user.img,
+                src:user.src,
                 Gender:user.gender
                
               }
@@ -44,7 +36,6 @@ const InputForm = ({setComment,setFilterData,comments}) => {
         <label htmlFor="Comment">Add New Comment</label>
      <input id="Comment" ref={refComment} maxLength={200}/>
      <button className="FormButton" onClick={refHandler}>Add</button>
-     
     </div>
   )
 }

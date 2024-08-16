@@ -1,6 +1,6 @@
 import Header from './Components/Header/Header.jsx';
 import img1 from './Images/AlyHany.jpg';
-import {useState} from 'react';
+import {useState,useEffect} from 'react';
 import InputForm from './Components/InputForm/InputForm.jsx';
 import SearchBar from './Components/SearchBar/SearchBar.jsx';
 import '../src/App.css';
@@ -40,6 +40,14 @@ const data = [
 export function App() {
   const [comments, setComments] = useState(data);
   const [FilterData,setFilterData]=useState(comments);
+  const [user,setUser]=useState("");
+  useEffect(()=>{
+    fetch("http://localhost:3004/LoggedInUser")
+    .then((data)=> data.json())
+    .then((fetchedData)=> {
+      setUser(fetchedData)
+    }).catch((error) => console.error('Error fetching data:', error));
+  },[]) 
   const deleteComment=(deletedId)=>{
     setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
     setFilterData(prevState => (prevState.filter(el => (el.id !== deletedId))))
@@ -50,11 +58,11 @@ export function App() {
   }
   return(
    <div className="App">
-    <Header src={img1}/>
+    <Header src={user.src}/>
    
   <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments}/>
     <h1 className="Title">Blog Website</h1>
- <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments}/>
+ <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user}/>
    </div>
   )
 

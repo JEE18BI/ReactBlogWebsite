@@ -1,7 +1,6 @@
 import Avatar from '../Avatar/Avatar.jsx'
 import './Header.css';
 const Header = ({src}) => {
-
   return (
     <div className="Header">
       <li className="NavBar">
