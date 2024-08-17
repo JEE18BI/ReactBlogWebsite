@@ -13,12 +13,12 @@ console.log(user);
             const dateString = formattedDate.toString();   
             const newComment=  {
                 id:Date.now(),
-                Comment:refComment.current.value,
-                UserName:user.userName,
-                Date:dateString,
+                comment:refComment.current.value,
+                userName:user.userName,
+                date:dateString,
                 src:user.src,
-                Gender:user.gender
-               
+                gender:user.gender,
+                postedBy:user.id
               }
               fetch('http://localhost:3004/comments/add', {
                 method: 'POST',
@@ -35,7 +35,7 @@ console.log(user);
                 console.error('Error:', error);
             });
               setComment(prevsState=>[...prevsState,newComment]);
-              if(newComment.Comment.toLowerCase().includes(document.getElementById("SearchBarInput").value.toLowerCase()))
+              if(newComment.comment.toLowerCase().includes(document.getElementById("SearchBarInput").value.toLowerCase()))
               setFilterData(prevsState=>[...prevsState,newComment]);
             else
             setFilterData(setFilterData);

@@ -50,7 +50,7 @@ export function App() {
    <div className="App">
     <Header src={user.src}/>
    
-  <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments}/>
+  <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user}/>
     <h1 className="Title">Blog Website</h1>
  <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user}/>
    </div>
