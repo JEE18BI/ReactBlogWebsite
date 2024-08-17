@@ -11,7 +11,7 @@ export function App() {
   const [FilterData,setFilterData]=useState("");
   const [user,setUser]=useState("");
   useEffect(()=>{
-    fetch("http://localhost:3004/Comments")
+    fetch("http://localhost:3004/Comments/GetAll")
     .then((data)=> data.json())
     .then((fetchedData)=> {
       setComments(fetchedData)
@@ -19,17 +19,29 @@ export function App() {
     }).catch((error) => console.error('Error fetching data:', error));
   },[])
   useEffect(()=>{
-    fetch("http://localhost:3004/LoggedInUser")
+    fetch("http://localhost:3004/users/loggedin")
     .then((data)=> data.json())
     .then((fetchedData)=> {
       setUser(fetchedData)
     }).catch((error) => console.error('Error fetching data:', error));
   },[]) 
   const deleteComment=(deletedId)=>{
-    setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
-    setFilterData(prevState => (prevState.filter(el => (el.id !== deletedId))))
-    console.log("Deleted");
-  };
+    fetch(`http://localhost:3004/comments/delete/${deletedId}`, {
+      method: 'DELETE'
+  })
+  .then(response => {
+      if (response.ok) {
+          console.log('Success: Comment deleted');
+      } else {
+          return response.text().then(text => {
+              console.error('Error: Failed to delete comment. Status:', text,response.status);
+          });
+      }
+  })
+  .catch(error => console.error('Fetch Error:', error));
+  setComments(prevState => (prevState.filter(el => (el.id !== deletedId))))
+  setFilterData(prevState => (prevState.filter(el => (el.id !== deletedId))))
+  }
   const addComment=(newComment)=>{
     setComments(prevState => (prevState,newComment));
   }
@@ -44,6 +56,6 @@ export function App() {
    </div>
   )
 
-}
 
+}
 export default App;

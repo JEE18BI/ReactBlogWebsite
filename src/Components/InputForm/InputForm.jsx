@@ -20,6 +20,20 @@ console.log(user);
                 Gender:user.gender
                
               }
+              fetch('http://localhost:3004/comments/add', {
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json'    
+                },
+                body: JSON.stringify(newComment)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
               setComment(prevsState=>[...prevsState,newComment]);
               if(newComment.Comment.toLowerCase().includes(document.getElementById("SearchBarInput").value.toLowerCase()))
               setFilterData(prevsState=>[...prevsState,newComment]);
