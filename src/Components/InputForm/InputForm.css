@@ -5,17 +5,22 @@
     flex-direction: column;
     width:400px;
     height:100px;
-    padding:1em;
-    margin-bottom:50px;
-}
-.FormButton{
-    background-color:darkcyan;
-    border-color:darkcyan;
-    color:white;
+    padding:1em;  
+    position: fixed;
+    z-index:999;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
 }
 label{
     font-weight:600;
 }
 input{
     border: darkcyan 2px solid;
+}
+a{
+    text-align: center;
+    cursor: pointer;
 }

@@ -1,9 +1,7 @@
-
 import  {useRef}  from 'react';
 import './InputForm.css';
-const InputForm = ({setComment,setFilterData,user}) => {
+const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
 
-console.log(user);
   let refComment =useRef(); 
   const refHandler =()=>{
         if(refComment.current.value!=="" ){
@@ -40,6 +38,7 @@ console.log(user);
             else
             setFilterData(setFilterData);
             refComment.current.value="";
+            setInputPopup(false);
         }
         else{
             alert("Please Fill All The Fields");
@@ -50,6 +49,7 @@ console.log(user);
         <label htmlFor="Comment">Add New Comment</label>
      <input id="Comment" ref={refComment} maxLength={200}/>
      <button className="FormButton" onClick={refHandler}>Add</button>
+        <a onClick={()=>setInputPopup(false)}>Discard</a>
     </div>
   )
 }

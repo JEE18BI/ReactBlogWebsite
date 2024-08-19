@@ -10,6 +10,7 @@ export function App() {
   const [comments, setComments] = useState("");
   const [FilterData,setFilterData]=useState("");
   const [user,setUser]=useState("");
+  const [inputPopup,setInputPopup]=useState(false);
   useEffect(()=>{
     fetch("http://localhost:3004/Comments/GetAll")
     .then((data)=> data.json())
@@ -45,14 +46,19 @@ export function App() {
   const addComment=(newComment)=>{
     setComments(prevState => (prevState,newComment));
   }
+  const showPopup=()=>{
+    setInputPopup(true);
+  }
   console.log(FilterData);
   return(
    <div className="App">
     <Header src={user.src}/>
-   
-  <SearchBar setFilterData={setFilterData} className="SearchComponent" deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user}/>
     <h1 className="Title">Blog Website</h1>
- <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user}/>
+  {!inputPopup && <button className="btn" onClick={showPopup}><i class="fa-regular fa-square-plus"></i>  Add</button> }
+    <div className={inputPopup?"Dimmed":"Bright"} onClick={()=>setInputPopup(false)}>
+  <SearchBar setFilterData={setFilterData}  deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user}/>
+  </div>
+ {inputPopup &&  <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user} setInputPopup={setInputPopup}/>}
    </div>
   )
 

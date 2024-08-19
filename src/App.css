@@ -1,13 +1,25 @@
+
 .Title{
   text-align: center;
+  margin:3em 0 0.5em 0;
 }
-.App{
+.App,.Dimmed,.Bright{
 justify-content: center;
 display: flex;
 flex-direction: column;
 }
 button{
   width:100px;
+  height:25px;
   margin: auto;
-  margin-bottom: 10px;
+  background-color:darkcyan;
+  border-color:darkcyan;
+  color:white;
+
+}
+.Dimmed{
+  filter:opacity(0.2);
+}
+.Bright{
+  filter:opacity(1);
 }
