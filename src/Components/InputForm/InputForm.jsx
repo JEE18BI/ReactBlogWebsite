@@ -9,8 +9,9 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
             const options = { year: 'numeric', month: 'short', day: '2-digit' };
             const formattedDate = today.toLocaleDateString('en-US', options);
             const dateString = formattedDate.toString();   
-            const newComment=  {
-                id:Date.now(),
+            let newComment=  {
+                //initially and then set by backend
+                id:0,
                 comment:refComment.current.value,
                 userName:user.userName,
                 date:dateString,
@@ -25,8 +26,9 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
                 },
                 body: JSON.stringify(newComment)
             })
-            .then(response => response.json())
+            .then(response =>response.json())
             .then(data => {
+                newComment.id = data.id;
                 console.log('Success:', data);
             })
             .catch(error => {
@@ -39,6 +41,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
             setFilterData(setFilterData);
             refComment.current.value="";
             setInputPopup(false);
+            console.log("new"+newComment.id+newComment.comment);
         }
         else{
             alert("Please Fill All The Fields");

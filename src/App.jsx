@@ -54,7 +54,7 @@ export function App() {
    <div className="App">
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
-  {!inputPopup && <button className="btn" onClick={showPopup}><i class="fa-regular fa-square-plus"></i>  Add</button> }
+  {!inputPopup && <button className="btn" onClick={showPopup}>Add</button> }
     <div className={inputPopup?"Dimmed":"Bright"} onClick={()=>setInputPopup(false)}>
   <SearchBar setFilterData={setFilterData}  deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user}/>
   </div>
