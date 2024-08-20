@@ -10,11 +10,13 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
             <h4 className="UserName">{userName}</h4>
             <p className="CommentText">{comment}</p>
             <div className="ButtonContainer">
-            {loggedUser.id === postedBy && (
-        <button className="DeleteButton" onClick={() => deleteFunction(id)}>
-          Delete
-        </button>
-      )}
+            
+            {loggedUser.id === postedBy && <div className="CardButtonContainer">
+
+          <button className="CardButton" >Edit</button>  
+          <button className="CardButton" id="DeleteButton" onClick={() => deleteFunction(id)}> Delete</button>  
+          
+            </div> }
             </div>
           </div>
     )
