@@ -4,8 +4,9 @@ import './Comment.css';
 import { useContext } from 'react';
 
 const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,postedBy})=>{
- const {isEdited,setIsEdited} = useContext(CommentEditedContext);
-  const HandleEdit = ()=>{
+ const {isEdited,setIsEdited,getEditedComment} = useContext(CommentEditedContext);
+  const HandleEdit = (id)=>{
+    getEditedComment(id,comment);
     if(setIsEdited){
       setIsEdited(true);
     }
@@ -20,7 +21,7 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
             
             {loggedUser.id === postedBy && <div className="CardButtonContainer">
 
-          <button className="CardButton" onClick={HandleEdit}>Edit</button>  
+          <button className="CardButton" onClick={()=>HandleEdit(id,comment)}>Edit</button>  
           <button className="CardButton" id="DeleteButton" onClick={() => deleteFunction(id)}> Delete</button>  
           
             </div> }
