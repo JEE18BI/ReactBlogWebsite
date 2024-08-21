@@ -4,6 +4,10 @@ export const CommentContext = createContext();
 const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEdited,editedComment,setEditedComment}) => {
   let refComment =useRef(); 
    const AddComment = async ()=>{
+    setEditedComment(prevState => ({
+      ...prevState,
+      comment: ""
+    }));
     if(refComment.current.value!=="" ){
       const today = new Date();
       const options = { year: 'numeric', month: 'short', day: '2-digit' };
