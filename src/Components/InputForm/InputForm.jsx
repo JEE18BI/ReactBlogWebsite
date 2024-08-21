@@ -1,8 +1,23 @@
 import  {useRef}  from 'react';
 import './InputForm.css';
-const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
+const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEdited}) => {
 
   let refComment =useRef(); 
+  const DiscardHandler = ()=>{
+    if(setInputPopup){
+
+      setInputPopup(false);
+      console.log("1");
+    }
+     if(setIsEdited){
+      setIsEdited(false);
+
+      console.log("2");
+    }
+  else{
+    console.log("else");
+  }
+  }
   const refHandler =()=>{
         if(refComment.current.value!=="" ){
             const today = new Date();
@@ -40,7 +55,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
             else
             setFilterData(setFilterData);
             refComment.current.value="";
-            setInputPopup(false);
+            DiscardHandler();
             console.log("new"+newComment.id+newComment.comment);
         }
         else{
@@ -49,10 +64,10 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup}) => {
     }
   return (
     <div className="AddCommentForm">
-        <label htmlFor="Comment">Add New Comment</label>
+        <label htmlFor="Comment">{isEdited?' Edit Comment' :'Add New Comment'}</label>
      <input id="Comment" ref={refComment} maxLength={200}/>
-     <button className="FormButton" onClick={refHandler}>Add</button>
-        <a onClick={()=>setInputPopup(false)}>Discard</a>
+     <button className="FormButton" onClick={refHandler}>{isEdited?' Edit' :'Add '}</button>
+        <a onClick={DiscardHandler}>Discard</a>
     </div>
   )
 }

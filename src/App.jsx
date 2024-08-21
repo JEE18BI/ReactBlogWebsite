@@ -1,16 +1,17 @@
 import Header from './Components/Header/Header.jsx';
-import img1 from './Images/AlyHany.jpg';
-import {useState,useEffect} from 'react';
+import {useState,useEffect,createContext} from 'react';
 import InputForm from './Components/InputForm/InputForm.jsx';
 import SearchBar from './Components/SearchBar/SearchBar.jsx';
 import '../src/App.css';
 
+export const CommentEditedContext = createContext();
 export function App() {
 
   const [comments, setComments] = useState("");
   const [FilterData,setFilterData]=useState("");
   const [user,setUser]=useState("");
   const [inputPopup,setInputPopup]=useState(false);
+  const [isEdited,setIsEdited]=useState(false);
   useEffect(()=>{
     fetch("http://localhost:3004/Comments/GetAll")
     .then((data)=> data.json())
@@ -55,10 +56,13 @@ export function App() {
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
   {!inputPopup && <button className="btn" onClick={showPopup}>Add</button> }
-    <div className={inputPopup?"Dimmed":"Bright"} onClick={()=>setInputPopup(false)}>
-  <SearchBar setFilterData={setFilterData}  deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user}/>
+    <div className={inputPopup || isEdited ? "Dimmed":"Bright"} onClick={()=>setInputPopup(false)}>
+      <CommentEditedContext.Provider value ={{setIsEdited,isEdited}}>
+      <SearchBar setFilterData={setFilterData}  deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user} />
+      </CommentEditedContext.Provider>
   </div>
- {inputPopup &&  <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user} setInputPopup={setInputPopup}/>}
+ {(inputPopup || isEdited) &&  <InputForm setComment={setComments} setFilterData={setFilterData} comments={comments} user={user} setInputPopup={setInputPopup} isEdited={isEdited} setIsEdited={setIsEdited} />}
+ 
    </div>
   )
 
