@@ -5,6 +5,7 @@ import SearchBar from './Components/SearchBar/SearchBar.jsx';
 import '../src/App.css';
 
 export const CommentEditedContext = createContext();
+export const ApiContext = createContext();
 export function App() {
 
   const [comments, setComments] = useState("");
@@ -13,9 +14,10 @@ export function App() {
   const [inputPopup,setInputPopup] = useState(false);
   const [isEdited,setIsEdited] = useState(false);
   const [editedComment,setEditedComment] = useState("");
-
+  
+  const baseUrl = "https://blog-express-apis.vercel.app";
   useEffect(()=>{
-    fetch("http://localhost:3004/Comments/GetAll")
+    fetch(`${baseUrl}/Comments/GetAll`)
     .then((data)=> data.json())
     .then((fetchedData)=> {
       setComments(fetchedData)
@@ -24,7 +26,7 @@ export function App() {
   },[])
 
   useEffect(()=>{
-    fetch("http://localhost:3004/users/loggedin")
+    fetch(`${baseUrl}/users/loggedin`)
     .then((data)=> data.json())
     .then((fetchedData)=> {
       setUser(fetchedData)
@@ -32,7 +34,7 @@ export function App() {
   },[]) 
 
   const deleteComment=(deletedId)=>{
-    fetch(`http://localhost:3004/comments/delete/${deletedId}`, {
+    fetch(`${baseUrl}/comments/delete/${deletedId}`, {
       method: 'DELETE'
   })
   .then(response => {
@@ -62,6 +64,7 @@ export function App() {
   console.log(FilterData);
   return(
    <div className="App">
+    <ApiContext.Provider value={{baseUrl}}>
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
   {!inputPopup && <button className="btn" onClick={showPopup}>Add</button> }
@@ -72,7 +75,7 @@ export function App() {
   </div>
  {(inputPopup || isEdited) &&  
  <InputForm setComment={setComments} setFilterData={setFilterData} user={user} setInputPopup={setInputPopup} isEdited={isEdited} setIsEdited={setIsEdited} editedComment={editedComment} setEditedComment={setEditedComment}/>}
- 
+  </ApiContext.Provider>
    </div>
   )
 

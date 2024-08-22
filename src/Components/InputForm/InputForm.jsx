@@ -1,7 +1,9 @@
-import  {useRef,createContext,useEffect}  from 'react';
+import  {useRef,createContext,useEffect,useContext}  from 'react';
 import './InputForm.css';
+import { ApiContext } from '../../App';
 export const CommentContext = createContext();
 const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEdited,editedComment,setEditedComment}) => {
+  const {baseUrl} = useContext(ApiContext);
   let refComment =useRef(); 
    const AddComment = async ()=>{
     setEditedComment(prevState => ({
@@ -23,7 +25,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
           gender:user.gender,
           postedBy:user.id
         }
-        await fetch('http://localhost:3004/comments/add', {
+        await fetch(`${baseUrl}/comments/add`, {
           method: 'POST',
           headers: {
           'Content-Type': 'application/json'    
@@ -58,7 +60,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
         const updatedComment= {
           comment: refComment.current.value
         };
-        fetch(`http://localhost:3004/comments/edit/${editedComment.id}`, {
+        fetch(`${baseUrl}/comments/edit/${editedComment.id}`, {
           method: 'PATCH',
           headers: {
           'Content-Type': 'application/json'    

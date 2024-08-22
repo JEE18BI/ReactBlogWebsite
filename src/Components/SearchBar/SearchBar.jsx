@@ -1,5 +1,5 @@
-import './SearchBar.css';
 import CommentList from '../CommentList/CommentList.jsx';
+import './SearchBar.css';
 const SearchBar = ({deleteFunction,FilterData,setFilterData,comments,loggedUser}) => {
    function FilterHandler(key){
      if(key.length===0)
