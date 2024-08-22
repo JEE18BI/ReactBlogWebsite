@@ -1,9 +1,13 @@
 .NavBar{
     display:flex;
 }
+.MobileNavBar{
+    display: none;
+}
 .Header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color:#121212;
     padding: 0.5em;
     position: fixed;
@@ -19,4 +23,12 @@ li>ul{
 }
 li{
     align-items: center;;
+}
+@media(max-width:768px){
+    .NavBar{
+        display: none;
+    }
+    .MobileNavBar{
+        display: flex;
+    }
 }
