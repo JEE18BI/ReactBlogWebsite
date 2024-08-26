@@ -19,9 +19,7 @@ const Header = ({src}) => {
       
       </li>
       <div className="MobileNavBar">
-     <li>
      <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} color='white'style={{ color: 'white', fontSize: '30px' }} onClick={MobileNavBarHandler}/>
-     </li>
       </div>
       <Avatar src={src}/>
     </div>

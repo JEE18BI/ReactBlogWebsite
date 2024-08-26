@@ -23,8 +23,8 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
 
           <button className="CardButton" onClick={()=>HandleEdit(id,comment)}>Edit</button>  
           <button className="CardButton" id="DeleteButton" onClick={() => deleteFunction(id)}> Delete</button>  
-          
             </div> }
+            <a className="ReplyButton">Reply</a>
             </div>
           </div>
     )

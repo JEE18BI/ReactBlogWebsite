@@ -30,11 +30,12 @@
     background-color:#d11a2a;
     color:white;
     border-color: #d11a2a;
+    margin-left: 10px;
 }
 
 .ButtonContainer{
    display: flex;
-   justify-content: center;
+   justify-content:right;
   
 }
 p.CommentText{
@@ -42,7 +43,8 @@ p.CommentText{
     height:68px;
 }
 .CardButtonContainer{
-    width: 50%;
-    display: flex;
-    justify-content: space-evenly;
+    width: 60%;
+}
+.ReplyButton{
+    font-weight: 400;
 }

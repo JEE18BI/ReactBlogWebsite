@@ -74,7 +74,8 @@ export function App() {
       </CommentEditedContext.Provider>
   </div>
  {(inputPopup || isEdited) &&  
- <InputForm setComment={setComments} setFilterData={setFilterData} user={user} setInputPopup={setInputPopup} isEdited={isEdited} setIsEdited={setIsEdited} editedComment={editedComment} setEditedComment={setEditedComment}/>}
+ <InputForm setComment={setComments} setFilterData={setFilterData} user={user} setInputPopup={setInputPopup} 
+ isEdited={isEdited} setIsEdited={setIsEdited} editedComment={editedComment} setEditedComment={setEditedComment}/>}
   </ApiContext.Provider>
    </div>
   )
