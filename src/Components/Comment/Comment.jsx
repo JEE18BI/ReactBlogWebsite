@@ -2,6 +2,8 @@ import Avatar from '../Avatar/Avatar';
 import { CommentEditedContext } from '../HomePage/HomePage.jsx';
 import './Comment.css';
 import { useContext } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,postedBy})=>{
  const {isEdited,setIsEdited,getEditedComment} = useContext(CommentEditedContext);
@@ -17,10 +19,12 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
              <Avatar src={src} Gender={gender}/>
             <h4 className="UserName">{userName}</h4>
             <p className="CommentText">{comment}</p>
-            <div className="ButtonContainer">
-           {loggedUser.id === postedBy &&<button className="CardButton" onClick={()=>HandleEdit(id,comment)}>Edit</button> }
-           <button className="CardButton">Reply</button> 
-           {loggedUser.id === postedBy &&<button className="CardButton DeleteButton"  onClick={() => deleteFunction(id)}> Delete</button> } 
+            <div className="CardBottom">
+            <a className="ReplyButton">Reply</a>
+            {loggedUser.id === postedBy && <div className="ButtonContainer">
+           <button className="CardButton EditButton" onClick={()=>HandleEdit(id,comment)}> <FontAwesomeIcon icon={faPen} /></button>
+           <button className="CardButton DeleteButton"  onClick={() => deleteFunction(id)}> <FontAwesomeIcon icon={faTrash} /></button> 
+            </div>}
             </div>
           </div>
     )

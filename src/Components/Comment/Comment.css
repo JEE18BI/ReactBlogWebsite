@@ -5,7 +5,7 @@
     width:400px;
     margin: auto;
     padding: 0.5em;
-    height: 210px;
+    height: 220px;
     background-color:#f6f6f6;
     box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     margin:1.5em 1.5em;
@@ -22,28 +22,36 @@
     margin-bottom:10px;
 }
 .CardButton{
- 
-    width:75px;
+    width:30px;
     font-size: 14px;
+    z-index:99;
+    border:none; 
 }
 .DeleteButton{
-    background-color:#d11a2a;
-    color:white;
-    border-color: #d11a2a;
+    background-color:#f6f6f6;
+    color:red;
 }
-
+.EditButton{
+    background-color:#f6f6f6;
+    color:darkcyan;
+}
 .ButtonContainer{
    display: flex;
    justify-content:center;
-  
-  
+   margin-left: auto;
+   width:80px; 
 }
 p.CommentText{
     font-size:0.8em;
     height:68px;
 }
 .ReplyButton{
-    font-weight: 400;
+    font-weight: 600;
     font-size: 14px;
-    
+    position:fixed;
+}
+.CardBottom{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
