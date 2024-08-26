@@ -18,13 +18,9 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
             <h4 className="UserName">{userName}</h4>
             <p className="CommentText">{comment}</p>
             <div className="ButtonContainer">
-            
-            {loggedUser.id === postedBy && <div className="CardButtonContainer">
-
-          <button className="CardButton" onClick={()=>HandleEdit(id,comment)}>Edit</button>  
-          <button className="CardButton" id="DeleteButton" onClick={() => deleteFunction(id)}> Delete</button>  
-            </div> }
-            <a className="ReplyButton">Reply</a>
+           {loggedUser.id === postedBy &&<button className="CardButton" onClick={()=>HandleEdit(id,comment)}>Edit</button> }
+           <button className="CardButton">Reply</button> 
+           {loggedUser.id === postedBy &&<button className="CardButton DeleteButton"  onClick={() => deleteFunction(id)}> Delete</button> } 
             </div>
           </div>
     )

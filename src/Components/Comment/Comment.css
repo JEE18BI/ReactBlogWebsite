@@ -26,25 +26,24 @@
     width:75px;
     font-size: 14px;
 }
-#DeleteButton{
+.DeleteButton{
     background-color:#d11a2a;
     color:white;
     border-color: #d11a2a;
-    margin-left: 10px;
 }
 
 .ButtonContainer{
    display: flex;
-   justify-content:right;
+   justify-content:center;
+  
   
 }
 p.CommentText{
     font-size:0.8em;
     height:68px;
 }
-.CardButtonContainer{
-    width: 60%;
-}
 .ReplyButton{
     font-weight: 400;
+    font-size: 14px;
+    
 }
