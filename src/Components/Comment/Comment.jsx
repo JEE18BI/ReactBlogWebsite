@@ -1,5 +1,5 @@
 import Avatar from '../Avatar/Avatar';
-import { CommentEditedContext } from '../../App';
+import { CommentEditedContext } from '../HomePage/HomePage.jsx';
 import './Comment.css';
 import { useContext } from 'react';
 

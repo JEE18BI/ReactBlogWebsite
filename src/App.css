@@ -3,7 +3,7 @@
   text-align: center;
   margin:3em 0 0.5em 0;
 }
-.App,.Dimmed,.Bright{
+.App,.Dimmed,.Bright,.HomePage{
 justify-content: center;
 display: flex;
 flex-direction: column;
