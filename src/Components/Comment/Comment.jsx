@@ -16,7 +16,7 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
     return(
         <div className='Comment' >
             <h6 className="Date">{date}</h6>
-             <Avatar src={src} Gender={gender}/>
+             <Avatar src={src} Gender={gender} AvatarInCard={true}/>
             <h4 className="UserName">{userName}</h4>
             <p className="CommentText">{comment}</p>
             <div className="CardBottom">

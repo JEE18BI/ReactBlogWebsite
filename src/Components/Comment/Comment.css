@@ -24,7 +24,6 @@
 .CardButton{
     width:30px;
     font-size: 14px;
-    z-index:99;
     border:none; 
 }
 .DeleteButton{
@@ -43,7 +42,10 @@
 }
 p.CommentText{
     font-size:0.8em;
-    height:68px;
+    height:80px;
+    width:350px;
+    word-wrap: break-word;
+   
 }
 .ReplyButton{
     font-weight: 600;
@@ -53,5 +55,5 @@ p.CommentText{
 .CardBottom{
     display: flex;
     justify-content: space-around;
-    align-items: center;
+    width:350px;
 }

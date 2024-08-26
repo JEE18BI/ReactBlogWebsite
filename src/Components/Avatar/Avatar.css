@@ -1,14 +1,11 @@
-img{
-    margin-right:2em;
-}
-.CommentImage{
+.Avatar{
     width: 4em;
     height:4em;
     border-radius:50%;
-    
+    margin-right:2em;
 }
 @media(max-width:768px){
-    .CommentImage{
+    .Avatar{
         width: 3em;
         height:3em;  
     }
