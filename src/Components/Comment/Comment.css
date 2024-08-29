@@ -55,5 +55,5 @@ p.CommentText{
 .CardBottom{
     display: flex;
     justify-content: space-around;
-    width:350px;
+    width:100%;
 }
