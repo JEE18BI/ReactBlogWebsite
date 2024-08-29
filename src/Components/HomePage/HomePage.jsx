@@ -3,21 +3,27 @@ import SearchBar from '../SearchBar/SearchBar';
 import InputForm from '../InputForm/InputForm';
 import { ApiContext } from '../../App';
 export const CommentEditedContext = createContext();
-const HomePage = ({user}) => {
-    const [comments, setComments] = useState("");
+const HomePage = ({user,MyComments}) => {
+  const [comments, setComments] = useState("");
   const [FilterData,setFilterData] = useState("");
   const [inputPopup,setInputPopup] = useState(false);
   const [isEdited,setIsEdited] = useState(false);
   const [editedComment,setEditedComment] = useState("");
   const {baseUrl} = useContext(ApiContext);
-  useEffect(()=>{
-    fetch(`${baseUrl}/Comments/GetAll`)
-    .then((data)=> data.json())
-    .then((fetchedData)=> {
-      setComments(fetchedData)
-      setFilterData(fetchedData)
-    }).catch((error) => console.error('Error fetching data:', error));
-  },[])
+  let commentsApi;
+  if(!MyComments)
+    commentsApi="/Comments/GetAll";
+  else
+  commentsApi=`/Comments/MyComments/${user.id}`;
+    useEffect(()=>{
+      fetch(`${baseUrl}${commentsApi}`)
+      .then((data)=> data.json())
+      .then((fetchedData)=> {
+        setComments(fetchedData)
+        setFilterData(fetchedData)
+      }).catch((error) => console.error('Error fetching data:', error));
+    },[])
+  
 
   const deleteComment=(deletedId)=>{
     fetch(`${baseUrl}/comments/delete/${deletedId}`, {

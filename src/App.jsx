@@ -3,6 +3,7 @@ import {useState,useEffect,createContext} from 'react';
 import HomePage from './Components/HomePage/HomePage.jsx';
 import {Route,Routes} from 'react-router-dom';
 import '../src/App.css';
+import MyComments from './Components/MyComments/MyComments.jsx';
 export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
 export function App() {
@@ -21,7 +22,8 @@ export function App() {
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
     <Routes>
-      <Route path="/" element ={ <HomePage user={user}/>}/>
+      <Route path="/" element ={ <HomePage user={user} MyComments={false}/>}/>
+      <Route path="/MyComments" element ={ <MyComments user={user}/>}/>
     </Routes>
   </ApiContext.Provider>
    </div>
