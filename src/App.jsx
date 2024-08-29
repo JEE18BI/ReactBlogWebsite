@@ -1,6 +1,7 @@
 import Header from './Components/Header/Header.jsx';
 import {useState,useEffect,createContext} from 'react';
 import HomePage from './Components/HomePage/HomePage.jsx';
+import {Route,Routes} from 'react-router-dom';
 import '../src/App.css';
 export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
@@ -19,7 +20,9 @@ export function App() {
   <ApiContext.Provider value={{baseUrl}}>
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
-    <HomePage user={user}/>
+    <Routes>
+      <Route path="/" element ={ <HomePage user={user}/>}/>
+    </Routes>
   </ApiContext.Provider>
    </div>
   )

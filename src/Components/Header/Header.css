@@ -1,5 +1,7 @@
 .NavBar{
     display:flex;
+    width:35%;
+    justify-content: space-around;
 }
 .MobileNavBar{
     display: none;
@@ -16,13 +18,35 @@
     top:0;
     
 }
-li>ul{
+.LinkStyle {
     font-weight: 600;
-    color:white;
-    font-size:1.2em;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+    position: relative;
+    display: inline-block; 
 }
+
+.LinkStyle::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px; 
+    background: white; 
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 1s ease;
+}
+
+.LinkStyle.active-link::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
 li{
-    align-items: center;;
+    align-items: center;
 }
 @media(max-width:768px){
     .NavBar{

@@ -7,7 +7,7 @@ import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,postedBy})=>{
  const {isEdited,setIsEdited,getEditedComment} = useContext(CommentEditedContext);
-  const HandleEdit = (id)=>{
+  const HandleEdit = (id,comment)=>{
     getEditedComment(id,comment);
     if(setIsEdited){
       setIsEdited(true);
