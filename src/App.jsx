@@ -26,7 +26,7 @@ export function App() {
     <Routes>
       <Route path="/" element ={ <HomePage user={user} MyComments={false}/>}/>
       <Route path="/MyComments" element ={ <MyComments user={user}/>}/>
-      <Route path="/Profile" element ={ <Profile/>}/>
+      {/* <Route path="/Profile" element ={ <Profile/>}/> */}
       <Route path="*" element = {<PageNotFound/>} />
     </Routes>
   </ApiContext.Provider>

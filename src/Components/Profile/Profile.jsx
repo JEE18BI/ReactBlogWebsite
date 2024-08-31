@@ -1,8 +1,10 @@
 import { useState , useEffect ,useContext } from 'react';
 import { ApiContext } from '../../App';
+import Avatar from '../Avatar/Avatar';
 import './Profile.css';
 const Profile = () => {
     const [user,setUser] = useState("");
+    const [userComments,setUserComments] = useState ("");
     const {baseUrl} = useContext(ApiContext);
     useEffect(()=>{
         fetch(`${baseUrl}/users/loggedin`)
@@ -16,7 +18,11 @@ const Profile = () => {
     {/* <div className="PersonalInfo">
         <h5>Personal Info</h5>
         <div className="InputContainer">
-           <div className="LabelContainer">
+        <div className="LabelContainer">
+        <label>Profile Image</label>
+            </div> 
+            <Avatar src={user.src}/>
+        <div className="LabelContainer">
         <label>User Name</label>
             </div> 
         <input value={user.userName} readOnly/>
@@ -27,7 +33,9 @@ const Profile = () => {
             </div> 
     <input value={user.gender} readOnly/>
     </div>
+
     </div> */}
+    
     </>
   )
 }

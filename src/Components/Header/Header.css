@@ -1,6 +1,6 @@
 .NavBar{
     display:flex;
-    width:35%;
+    width:25%;
     justify-content: space-around;
 }
 .DesktopNav{
@@ -8,7 +8,7 @@
     justify-content: space-between;
     width:100%;
 }
-.MobileNavBar{
+.MobileNavBar,.MobileNav{
     display: none;
 }
 .Header{
@@ -54,7 +54,7 @@ li{
     align-items: center;
 }
 @media(max-width:768px){
-    .MobileHeader{
+    .MobileHeader,.MobileNav{
         display: flex;
         flex-direction: column;
         width:100%;
