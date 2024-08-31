@@ -4,6 +4,7 @@ import HomePage from './Components/HomePage/HomePage.jsx';
 import {Route,Routes} from 'react-router-dom';
 import '../src/App.css';
 import MyComments from './Components/MyComments/MyComments.jsx';
+import Profile from './Components/Profile/Profile.jsx';
 export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
 export function App() {
@@ -24,6 +25,7 @@ export function App() {
     <Routes>
       <Route path="/" element ={ <HomePage user={user} MyComments={false}/>}/>
       <Route path="/MyComments" element ={ <MyComments user={user}/>}/>
+      <Route path="/Profile" element ={ <Profile/>}/>
     </Routes>
   </ApiContext.Provider>
    </div>
