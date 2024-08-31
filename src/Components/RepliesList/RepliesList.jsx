@@ -1,5 +1,6 @@
 import React from 'react';
 import placeholderImg from '../../Images/Placeholder.svg';
+import Reply from '../Reply/Reply';
 
 const RepliesList = ({ comment }) => {
   const replies = comment.replies;
@@ -16,10 +17,7 @@ const RepliesList = ({ comment }) => {
   return (
     <div className="RepliesList">
       {replies.map((reply) => (
-        <div key={reply.id} className="Reply">
-          <p>{reply.reply}</p>
-          <small>{reply.date}</small>
-        </div>
+        <Reply key={reply.id} reply={reply}/>
       ))}
     </div>
   );
