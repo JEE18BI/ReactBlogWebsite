@@ -3,6 +3,11 @@
     width:35%;
     justify-content: space-around;
 }
+.DesktopNav{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
 .MobileNavBar{
     display: none;
 }
@@ -60,7 +65,7 @@ li{
         align-items: center;
         width: 100%;
     }
-    .NavBar{
+    .DesktopNav{
         display: none;
     }
     .LinkStyle{

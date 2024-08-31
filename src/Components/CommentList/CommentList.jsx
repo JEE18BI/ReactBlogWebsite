@@ -7,7 +7,7 @@ const CommentList = ({data , deleteFunction,loggedUser}) => {
  return (
    <div className="PlaceholderDiv">
  <img src={placeholderImg} className="PlaceholderImage" alt="Placeholder image"/>
- <h5>No Comments To Show</h5>
+ <h3>No Comments To Show</h3>
   </div>
  )
   }
