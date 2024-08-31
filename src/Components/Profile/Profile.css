@@ -1,0 +1,10 @@
+.PersonalInfo{
+    width:350px;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+label{
+    font-size:0.7em;
+}

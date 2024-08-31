@@ -26,6 +26,7 @@ export function App() {
       <Route path="/" element ={ <HomePage user={user} MyComments={false}/>}/>
       <Route path="/MyComments" element ={ <MyComments user={user}/>}/>
       <Route path="/Profile" element ={ <Profile/>}/>
+    
     </Routes>
   </ApiContext.Provider>
    </div>

@@ -18,10 +18,12 @@ const Header = ({src}) => {
       <Link to="/MyComments" className={location.pathname === '/MyComments' ? 'active-link LinkStyle' : 'LinkStyle'}> My Comments </Link>
       <Link to="/Login" className={location.pathname === '/Login' ? 'active-link LinkStyle' : 'LinkStyle'}> Login </Link>
       </li>
+      <div className="MobileHeader">
       <div className="MobileNavBar">
      <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} color='white'style={{ color: 'white', fontSize: '30px'}} onClick={MobileNavBarHandler}/>
-     </div>
-     {isMenuOpen && <div className="MobileNav">
+      <Avatar src={src}/>
+      </div>
+      {isMenuOpen && <div className="MobileNav">
       <li>
       <Link to="/" className={location.pathname === '/' ? 'active-link LinkStyle' : 'LinkStyle'}> Home </Link>
       <Link to="/Profile" className={location.pathname === '/Profile' ? 'active-link LinkStyle' : 'LinkStyle'}> Profile </Link>
@@ -29,8 +31,7 @@ const Header = ({src}) => {
       <Link to="/Login" className={location.pathname === '/Login' ? 'active-link LinkStyle' : 'LinkStyle'}> Login </Link>
       </li>
       </div>}
-     
-      <Avatar src={src}/>
+    </div>
     </div>
   )
 }

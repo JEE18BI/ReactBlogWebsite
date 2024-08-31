@@ -49,10 +49,27 @@ li{
     align-items: center;
 }
 @media(max-width:768px){
-    .NavBar{
-        display: none;
+    .MobileHeader{
+        display: flex;
+        flex-direction: column;
+        width:100%;
     }
     .MobileNavBar{
         display: flex;
+        justify-content:space-between ;
+        align-items: center;
+        width: 100%;
     }
+    .NavBar{
+        display: none;
+    }
+    .LinkStyle{
+        margin-bottom:5px;
+    }
+    li{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        font-size: 14px;
+     }
 }
