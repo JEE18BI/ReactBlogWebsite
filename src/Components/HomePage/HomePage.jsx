@@ -2,7 +2,7 @@ import {useState,useEffect,createContext,useContext} from 'react';
 import SearchBar from '../SearchBar/SearchBar';
 import InputForm from '../InputForm/InputForm';
 import { ApiContext } from '../../App';
-export const CommentEditedContext = createContext();
+export const CommentActionsContext = createContext();
 const HomePage = ({user,MyComments}) => {
   const [comments, setComments] = useState("");
   const [FilterData,setFilterData] = useState("");
@@ -57,9 +57,10 @@ const HomePage = ({user,MyComments}) => {
     <div className="HomePage">
       {!inputPopup && <button className="btn" onClick={showPopup}>Add</button> }
     <div className={inputPopup || isEdited ? "Dimmed":"Bright"} onClick={()=>setInputPopup(false)}>
-      <CommentEditedContext.Provider value ={{setIsEdited,isEdited,getEditedComment}}>
-      <SearchBar setFilterData={setFilterData}  deleteFunction={deleteComment} FilterData={FilterData} comments={comments} loggedUser={user} />
-      </CommentEditedContext.Provider>
+      <CommentActionsContext.Provider value ={{setIsEdited,isEdited,getEditedComment,deleteComment}}>
+        
+      <SearchBar setFilterData={setFilterData} FilterData={FilterData} comments={comments} loggedUser={user} />
+      </CommentActionsContext.Provider>
   </div>
  {(inputPopup || isEdited) &&  
  <InputForm setComment={setComments} setFilterData={setFilterData} user={user} setInputPopup={setInputPopup} 

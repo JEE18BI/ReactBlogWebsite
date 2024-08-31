@@ -16,7 +16,7 @@ const SearchBar = ({deleteFunction,FilterData,setFilterData,comments,loggedUser}
     <div className="SearchBarContainer">
 <input placeholder="Search By Comment Details" id="SearchBarInput" className="SearchBar" onChange={(e)=>FilterHandler(e.target.value)}/>
     </div>
- <CommentList data={FilterData} deleteFunction={deleteFunction} loggedUser={loggedUser}/>
+ <CommentList data={FilterData} loggedUser={loggedUser}/>
    
     </>
   )

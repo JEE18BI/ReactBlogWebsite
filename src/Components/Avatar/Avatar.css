@@ -4,6 +4,10 @@
     border-radius:50%;
     margin-right:2em;
 }
+.CardDetailsAvatar{
+    width:6em;
+    height:6em;
+}
 @media(max-width:768px){
     .Avatar{
         width: 3em;

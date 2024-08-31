@@ -1,14 +1,15 @@
 import MalePlaceholder from '../../Images/Male-Placeholder.png';
 import FemalePlaceholder from '../../Images/Female-Placeholder.png';
 import './Avatar.css';
-const Avatar = ({src,Gender,AvatarInCard}) => {
+import CardDetails from '../CardDetails/CardDetails';
+const Avatar = ({src,Gender,CardDetails}) => {
   let Placeholder=MalePlaceholder;
   if(Gender==="F"){
     Placeholder=FemalePlaceholder;
   }
     return (
       <>
-         <img className={AvatarInCard ? 'CommentImage Avatar' : 'HeaderImage Avatar'} src={src ? src :Placeholder} alt="Male Avatar"/>
+         <img className={CardDetails ? 'CardDetailsAvatar Avatar' : 'HeaderImage Avatar'} src={src ? src :Placeholder} alt="Male Avatar"/>
     
       </>
     )

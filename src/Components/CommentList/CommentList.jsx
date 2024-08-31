@@ -1,7 +1,7 @@
 import Comment from '../Comment/Comment.jsx';
 import placeholderImg from '../../Images/Placeholder.svg';
 import './CommentList.css';
-const CommentList = ({data , deleteFunction,loggedUser}) => {
+const CommentList = ({data ,loggedUser}) => {
   if(data.length===0){
     console.log("zero") 
  return (
@@ -12,7 +12,7 @@ const CommentList = ({data , deleteFunction,loggedUser}) => {
  )
   }
     const newData= data.map((comment)=>(
-        <Comment key={comment.id} {...comment} deleteFunction={deleteFunction} loggedUser={loggedUser}/>
+        <Comment key={comment.id} {...comment} loggedUser={loggedUser}/>
        ))
        console.log(newData);
       

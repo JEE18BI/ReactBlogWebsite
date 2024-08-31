@@ -1,12 +1,12 @@
 import Avatar from '../Avatar/Avatar';
-import { CommentEditedContext } from '../HomePage/HomePage.jsx';
+import { CommentActionsContext } from '../HomePage/HomePage.jsx';
 import './Comment.css';
 import { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-
-const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,postedBy})=>{
- const {isEdited,setIsEdited,getEditedComment} = useContext(CommentEditedContext);
+import { Link } from 'react-router-dom';
+const Comment = ({id,userName,loggedUser,comment,date,src,gender,postedBy})=>{
+ const {isEdited,setIsEdited,getEditedComment,deleteComment} = useContext(CommentActionsContext);
   const HandleEdit = (id,comment)=>{
     getEditedComment(id,comment);
     if(setIsEdited){
@@ -20,10 +20,10 @@ const Comment = ({id,userName,loggedUser,comment,date,src,gender,deleteFunction,
             <h4 className="UserName">{userName}</h4>
             <p className="CommentText">{comment}</p>
             <div className="CardBottom">
-            <a className="ReplyButton">Reply</a>
+            <Link to={`/CommentDetails/${id}`} className="ReplyButton">Reply</Link>
             {loggedUser.id === postedBy && <div className="ButtonContainer">
            <button className="CardButton EditButton" onClick={()=>HandleEdit(id,comment)}> <FontAwesomeIcon icon={faPen} /></button>
-           <button className="CardButton DeleteButton"  onClick={() => deleteFunction(id)}> <FontAwesomeIcon icon={faTrash} /></button> 
+           <button className="CardButton DeleteButton"  onClick={() => deleteComment(id)}> <FontAwesomeIcon icon={faTrash} /></button> 
             </div>}
             </div>
           </div>
