@@ -5,6 +5,7 @@ import {Route,Routes} from 'react-router-dom';
 import '../src/App.css';
 import MyComments from './Components/MyComments/MyComments.jsx';
 import Profile from './Components/Profile/Profile.jsx';
+import PageNotFound from './Components/PageNotFound/PageNotFound.jsx';
 export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
 export function App() {
@@ -26,7 +27,7 @@ export function App() {
       <Route path="/" element ={ <HomePage user={user} MyComments={false}/>}/>
       <Route path="/MyComments" element ={ <MyComments user={user}/>}/>
       <Route path="/Profile" element ={ <Profile/>}/>
-    
+      <Route path="*" element = {<PageNotFound/>} />
     </Routes>
   </ApiContext.Provider>
    </div>
