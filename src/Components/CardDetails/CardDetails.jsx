@@ -22,12 +22,12 @@ const CardDetails = ({loggedInUser}) => {
           },[]) 
 
         useEffect(()=>{
-          fetch(`${baseUrl}/Users/get/${id}`)
+          fetch(`${baseUrl}/Users/get/${comment.postedBy}`)
           .then((data)=> data.json())
           .then((fetchedData)=> {
             setUser(fetchedData)
           }).catch((error) => console.error('Error fetching data:', error));
-        },[]) 
+        },[user]) 
   if (!comment || !user) {
     return <div>Loading...</div>;
   }        

@@ -21,8 +21,8 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
     function ComingSoon(){
       alert("Coming Soon");
     }
-    const DeleteReply = (replyId)=>{
-      fetch(`${baseUrl}/comments/${comment.id}/replies/delete/${replyId}`, {
+    const DeleteReply = async(replyId)=>{
+      await fetch(`${baseUrl}/comments/${comment.id}/replies/delete/${replyId}`, {
         method: 'DELETE'
     })
     .then(response => {

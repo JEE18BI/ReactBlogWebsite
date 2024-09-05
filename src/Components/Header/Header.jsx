@@ -1,7 +1,7 @@
 import Avatar from '../Avatar/Avatar.jsx'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 import { Link , useLocation} from 'react-router-dom';
 import './Header.css';
 const Header = ({src}) => {
@@ -10,6 +10,9 @@ const Header = ({src}) => {
     setIsMenuOpen(!isMenuOpen);
   }
   const location = useLocation();
+  useEffect(()=>{
+  setIsMenuOpen(false);
+  },[location]);
   return (
     <div className="Header">
       <div className="DesktopNav">

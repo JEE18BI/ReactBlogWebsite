@@ -23,7 +23,8 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
           date:dateString,
           src:user.src,
           gender:user.gender,
-          postedBy:user.id
+          postedBy:user.id,
+          replies:[]
         }
         await fetch(`${baseUrl}/comments/add`, {
           method: 'POST',

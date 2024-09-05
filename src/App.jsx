@@ -11,7 +11,8 @@ export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
 export function App() {
   const [user,setUser] = useState(""); 
-  const baseUrl = "https://blog-express-apis.vercel.app";
+  // https://blog-express-apis.vercel.app
+  const baseUrl = "http://localhost:3004";
   useEffect(()=>{
     fetch(`${baseUrl}/users/loggedin`)
     .then((data)=> data.json())
