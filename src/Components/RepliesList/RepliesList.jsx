@@ -1,9 +1,9 @@
-import React from 'react';
+import {useState} from 'react';
 import placeholderImg from '../../Images/Placeholder.svg';
 import Reply from '../Reply/Reply';
 
-const RepliesList = ({ comment }) => {
-  const replies = comment.replies;
+const RepliesList = ({ comment,setComment , loggedInUser}) => {
+  const [replies,setReplies] = useState(comment.replies);
 
   if (replies.length === 0) {
     return (
@@ -17,7 +17,7 @@ const RepliesList = ({ comment }) => {
   return (
     <div className="RepliesList">
       {replies.map((reply) => (
-        <Reply key={reply.id} reply={reply}/>
+        <Reply key={reply.id} reply={reply} loggedInUser={loggedInUser} comment={comment} setReplies={setReplies} setComment={setComment}/>
       ))}
     </div>
   );

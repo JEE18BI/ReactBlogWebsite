@@ -49,7 +49,7 @@ const CardDetails = ({loggedInUser}) => {
      </div>
      <div className="Replies">
       <h4>Replies</h4>
-     <RepliesList comment={comment}/>
+     <RepliesList comment={comment} setComment={setComment} loggedInUser={loggedInUser}/>
      </div>
    </div>
    </>
