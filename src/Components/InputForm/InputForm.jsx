@@ -1,4 +1,6 @@
 import  {useRef,createContext,useEffect,useContext}  from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './InputForm.css';
 import { ApiContext } from '../../App';
 export const CommentContext = createContext();
@@ -51,7 +53,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
       console.log("new"+newComment.id+newComment.comment);
     }
     else{
-      alert("Please Fill Comment Field");
+      toast.warn("Please Fill Comment Field");
     }
   }
   const EditComment =  ()=>{
@@ -107,7 +109,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
     DiscardHandler();
       }
       else{
-        alert("Please Fill Comment Field");
+        toast.warn("Please Fill Comment Field");
       }
      
      }
@@ -155,6 +157,7 @@ const InputForm = ({setComment,setFilterData,user,setInputPopup,isEdited,setIsEd
     };
   return (
     <div className="AddCommentForm">
+       <ToastContainer/>
         <label htmlFor="Comment">{isEdited?' Edit Comment' :'Add New Comment'}</label>
      <input id="Comment" ref={refComment} maxLength={200} value={editedComment.comment} onChange={handleChange}/>
      <button className="FormButton" onClick={refHandler}>{isEdited?' Edit' :'Add '}</button>

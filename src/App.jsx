@@ -4,15 +4,14 @@ import HomePage from './Components/HomePage/HomePage.jsx';
 import {Route,Routes} from 'react-router-dom';
 import '../src/App.css';
 import MyComments from './Components/MyComments/MyComments.jsx';
-import Profile from './Components/Profile/Profile.jsx';
+// import Profile from './Components/Profile/Profile.jsx';
 import CardDetails from './Components/CardDetails/CardDetails.jsx';
 import PageNotFound from './Components/PageNotFound/PageNotFound.jsx';
 export const CommentEditedContext = createContext();
 export const ApiContext = createContext();
 export function App() {
   const [user,setUser] = useState(""); 
-  // https://blog-express-apis.vercel.app
-  const baseUrl = "http://localhost:3004";
+  const baseUrl = "https://blog-express-apis.vercel.app";
   useEffect(()=>{
     fetch(`${baseUrl}/users/loggedin`)
     .then((data)=> data.json())
