@@ -30,6 +30,21 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
               },
               body: JSON.stringify(updatedReply)
           })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Error: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+          setReplies(prevReplies =>
+            prevReplies.map(reply =>
+              reply.id === replyId
+                ? { ...reply, reply: data.reply,date:data.date } 
+                : reply
+            )
+          );
+        })
         }
       }
         
