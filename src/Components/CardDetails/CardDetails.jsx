@@ -13,21 +13,22 @@ const CardDetails = ({loggedInUser}) => {
     const [comment,setComment] = useState("");
     const [user,setUser] = useState("");
     const {baseUrl} = useContext(ApiContext);
-        useEffect(()=>{
+       useEffect(()=>{
             fetch(`${baseUrl}/Comments/get/${id}`)
             .then((data)=> data.json())
             .then((fetchedData)=> {
               setComment(fetchedData)
             }).catch((error) => console.error('Error fetching data:', error));
           },[]) 
-
-        useEffect(()=>{
-          fetch(`${baseUrl}/Users/get/${comment.postedBy}`)
-          .then((data)=> data.json())
-          .then((fetchedData)=> {
-            setUser(fetchedData)
-          }).catch((error) => console.error('Error fetching data:', error));
-        },[user]) 
+          useEffect(()=>{
+            if(comment)
+            fetch(`${baseUrl}/Users/get/${comment.postedBy}`)
+            .then((data)=> data.json())
+            .then((fetchedData)=> {
+              setUser(fetchedData)
+            }).catch((error) => console.error('Error fetching data:', error));
+          },[comment]) 
+        
   if (!comment || !user) {
     return <div>Loading...</div>;
   }        

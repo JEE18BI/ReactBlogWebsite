@@ -18,9 +18,21 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
     if (!reply || !reply.postedBy) {
         return <div>Loading...</div>;
       }     
-    function ComingSoon(){
-      alert("Coming Soon");
-    }
+      const EditReply = (replyId,commentId)=>{
+        if(commentId && replyId){
+          const updatedReply= {
+            reply: "Updated Reply"
+          };
+            fetch(`${baseUrl}/comments/${commentId}/replies/edit/${replyId}`, {
+              method: 'PATCH',
+              headers: {
+              'Content-Type': 'application/json'    
+              },
+              body: JSON.stringify(updatedReply)
+          })
+        }
+      }
+        
     const DeleteReply = async(replyId)=>{
       await fetch(`${baseUrl}/comments/${comment.id}/replies/delete/${replyId}`, {
         method: 'DELETE'
@@ -55,7 +67,7 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
       </div>
       {(reply.postedBy === loggedInUser.id) && 
       <div className="ButtonContainer">
-      <button className="CardButton EditButton" onClick={ComingSoon}> <FontAwesomeIcon icon={faPen} /></button>
+      <button className="CardButton EditButton" onClick={()=>EditReply(reply.id,comment.id)}> <FontAwesomeIcon icon={faPen} /></button>
       <button className="CardButton DeleteButton" onClick={()=>DeleteReply(reply.id)}> <FontAwesomeIcon icon={faTrash} /></button> 
        </div>
       }
