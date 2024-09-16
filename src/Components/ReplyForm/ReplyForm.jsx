@@ -3,9 +3,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { ApiContext } from '../../App';
 import './ReplyForm.css';
-const ReplyForm = (setReplies) => {
+const ReplyForm = ({setReplies,setComment,comment,loggedInUser}) => {
     const [replyInput,setReplyInput] = useState("");
-    const {baseUrl,user} = useContext(ApiContext);
+    const {baseUrl} = useContext(ApiContext);
     const params = useParams();
     const commentId = params.id;
     const AddReply = async()=>{
@@ -17,13 +17,11 @@ const ReplyForm = (setReplies) => {
         const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
         const formattedDate =`${now.getHours().toString().padStart(2, '0')} : ${now.getMinutes().toString().padStart(2, '0')} , ${now.getDate().toString().padStart(2, '0')} ${monthNames[now.getMonth()].toString().padStart(2, '0')} ${now.getFullYear().toString().slice(-2)}`;
         const dateString = formattedDate.toString();
-        let newReply=  {
-            id:0,
+        let newReply =  {
             reply:replyInput,
             date:dateString,
-            postedBy:user.id
+            postedBy:loggedInUser.id
         }
-        console.log("comment id " +commentId)
         await fetch(`${baseUrl}/comments/replies/add/${commentId}`, {
             method: 'POST',
             headers: {
@@ -33,9 +31,13 @@ const ReplyForm = (setReplies) => {
      })
      .then(response =>response.json())
      .then(data => {
-         newReply.id = data.id;
+         newReply.id = data.newReply.id;
          console.log('Success:', data);
-         setReplies(newReply);
+         let newComment = comment;
+        newComment.replies.push(newReply);
+        setComment(newComment);
+        setReplies(prevState=>[...prevState , newReply]);
+       
      })
      .catch(error => {
          console.error('Error:', error);

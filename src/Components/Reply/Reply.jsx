@@ -6,6 +6,7 @@ import Avatar from '../Avatar/Avatar';
 import { ToastContainer, toast } from 'react-toastify';
 import './Reply.css';
 const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
+  console.log("rely rendered")
     const [user,setUser] = useState("");
     const [replyInput,setReplyInput] = useState(reply.reply);
     const [inputForm,setInputForm] = useState(false);
@@ -26,7 +27,6 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
     const SaveEditReply = (replyId,commentId)=>{
   if(commentId && replyId){
     if(replyInput){
-         
             const updatedReply= {
               reply: replyInput
             };
@@ -51,6 +51,7 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
                   : reply
                 )
               );
+              setComment(data.updatedComment);
           })
           setInputForm(false);
           }

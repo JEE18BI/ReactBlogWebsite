@@ -55,8 +55,8 @@ const CardDetails = ({loggedInUser}) => {
      <div className="Replies">
       <h4>Replies</h4>
      {!addReplyForm &&<button className="AddReplyButton" onClick={AddReplyToggle}>Add Reply</button>}
-     {addReplyForm && <ReplyForm  loggedInUser={loggedInUser} commentId={id} setReplies={setReplies}/>}
-     <RepliesList comment={comment} setComment={setComment} loggedInUser={loggedInUser}/>
+     {addReplyForm && <ReplyForm  loggedInUser={loggedInUser} commentId={id} setReplies={setReplies} comment={comment} setComment={setComment}/>}
+     <RepliesList comment={comment} setComment={setComment} loggedInUser={loggedInUser} commentReplies={replies}/>
      </div>
    </div>
    </>

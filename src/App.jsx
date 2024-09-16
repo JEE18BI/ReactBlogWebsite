@@ -21,7 +21,7 @@ export function App() {
   },[]) 
   return(
    <div className="App">
-  <ApiContext.Provider value={{baseUrl,user}}>
+  <ApiContext.Provider value={{baseUrl}}>
     <Header src={user.src}/>
     <h1 className="Title">Blog Website</h1>
     <Routes>
