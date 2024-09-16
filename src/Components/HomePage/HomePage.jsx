@@ -1,6 +1,6 @@
 import {useState,useEffect,createContext,useContext} from 'react';
 import SearchBar from '../SearchBar/SearchBar';
-import InputForm from '../InputForm/InputForm';
+import InputForm from '../CommentInputForm/CommentInputForm';
 import { ApiContext } from '../../App';
 export const CommentActionsContext = createContext();
 const HomePage = ({user,MyComments}) => {

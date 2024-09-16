@@ -1,6 +1,7 @@
 .ReplyContainer{
     background-color:#f6f6f6;
-    margin: 10px;
+    margin: 20px 10px 20px 10px;
+    padding: 10px;
     box-shadow: 10px 30px 30px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     width:500px;
 }
@@ -20,9 +21,8 @@
     width:350px;
     word-wrap: break-word;
 }
-.ReplySubHeader{
-    display:block;
-    text-align:left;
+.ReplyUserName{
+    text-align: left;
 }
 .ReplyText{
    margin-left: 0.5em;
@@ -32,4 +32,9 @@
 }
 .SaveButton{
     width:100px;
+}
+.SaveButtonContainer{
+    margin:auto;
+    display: flex;
+    justify-content: center;
 }

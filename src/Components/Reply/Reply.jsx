@@ -86,12 +86,11 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
      <div className="ReplyContainer">  
       <div className="ReplySubContainer">
         <div className="ReplyHeader">
+          <div>
           <Avatar src={user.src}/>
-          <div className="ReplySubHeader">
-
-      <h6>{user.userName}</h6>
-      <h6>{reply.date}</h6>
+          <h4 className="ReplyUserName">{user.userName}</h4>
           </div>
+          <h6>{reply.date}</h6>
         </div>
         <div className="ReplyBody">
       {!inputForm && <h6 className="ReplyText">{reply.reply}</h6>}
@@ -104,7 +103,10 @@ const Reply = ({reply,loggedInUser,comment,setReplies,setComment}) => {
       <button className="CardButton DeleteButton" onClick={()=>DeleteReply(reply.id)}> <FontAwesomeIcon icon={faTrash} /></button> 
        </div>
       }
-      {(reply.postedBy === loggedInUser.id) && inputForm &&<button className="SaveButton" onClick={()=>SaveEditReply(reply.id,comment.id)}>Edit</button> }
+      {(reply.postedBy === loggedInUser.id) && inputForm &&
+      <div className="SaveButtonContainer">
+      <button className="SaveButton" onClick={()=>SaveEditReply(reply.id,comment.id)}>Edit</button> 
+      </div>}
     </div>
     </>
   )

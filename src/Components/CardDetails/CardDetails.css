@@ -19,6 +19,14 @@
     padding: 25px;
     padding-top: 5px;
 }
+.Replies{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.AddReplyButton{
+    margin:20px auto;
+}
 h4{
     text-align: center;
 }
