@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { ApiContext } from '../../App';
 import './ReplyForm.css';
-const ReplyForm = () => {
+const ReplyForm = (setReplies) => {
     const [replyInput,setReplyInput] = useState("");
     const {baseUrl,user} = useContext(ApiContext);
     const params = useParams();
@@ -35,6 +35,7 @@ const ReplyForm = () => {
      .then(data => {
          newReply.id = data.id;
          console.log('Success:', data);
+         setReplies(newReply);
      })
      .catch(error => {
          console.error('Error:', error);

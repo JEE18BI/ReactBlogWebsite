@@ -11,6 +11,7 @@ const CardDetails = ({loggedInUser}) => {
     const id = params.id;
     const [comment,setComment] = useState("");
     const [user,setUser] = useState("");
+    const [replies,setReplies] = useState("");
     const [addReplyForm,setAddReplyForm] = useState(false);
     const {baseUrl} = useContext(ApiContext);
        useEffect(()=>{
@@ -54,7 +55,7 @@ const CardDetails = ({loggedInUser}) => {
      <div className="Replies">
       <h4>Replies</h4>
      {!addReplyForm &&<button className="AddReplyButton" onClick={AddReplyToggle}>Add Reply</button>}
-     {addReplyForm && <ReplyForm  loggedInUser={loggedInUser} commentId={id}/>}
+     {addReplyForm && <ReplyForm  loggedInUser={loggedInUser} commentId={id} setReplies={setReplies}/>}
      <RepliesList comment={comment} setComment={setComment} loggedInUser={loggedInUser}/>
      </div>
    </div>
